@@ -9,8 +9,6 @@
 ```c++
 int superPow(int a, vector<int>& b) {
 
-
-
 }
 ```
 
@@ -18,38 +16,35 @@ int superPow(int a, vector<int>& b) {
 
 对于指数来说，每一次取最后一位与底数求得幂后，将最后一位弹出(调用std::vector::pop_back())；
 
-对于底数来说，由于，
-$$
-(i*k+j)^b=j^b
-$$
-在计算开始前可以进行取模，这样做能防止计算结果超出<int>上限。
+对于底数来说，由于`(i*k+j)^b=j^b`，所以计算开始前可以进行取模减小运算量，这样做能防止计算结果超出<int>上限。
 
 在提交答案前也需要一次取模。
 
-没有优化的代码如下。
+
+调整了代码字符间距。
 
 ```c++
 class Solution {
 public:
-    int a_pow(int a, int b){
-        a%=1337;
-        int res=a;
-        if(b==1) return res;
-        if(a==1||b==0) return 1;
-        for(int i=0;i<b-1;i++)
-            res=(res*a)%1337;
+    int a_pow(int a, int b) {
+        a %= 1337;
+        int res = a;
+        if (b == 1) return res;
+        if (a == 1 || b == 0) return 1;
+        for (int i = 0; i < b - 1; i++)
+            res = (res * a) % 1337;
         return res;
     }
 
     int superPow(int a, vector<int>& b) {
-        if(b.empty()) return 1;
-        a%=1337;
-        int result=a;
-        while(!b.empty())
+        if (b.empty()) return 1;
+        a %= 1337;
+        int result = a;
+        while (!b.empty())
         {
-            int temp=a_pow(a,b.back());
+            int temp = a_pow(a, b.back());
             b.pop_back();
-            result=(temp*a_pow(superPow(a,b),10))%1337;
+            result = (temp * a_pow(superPow(a, b), 10)) % 1337;
         }
         return result;
     }
