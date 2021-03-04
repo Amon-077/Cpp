@@ -32,8 +32,6 @@ void UseSmartPointer()
 } // song2 is deleted automatically here.
 ```
 
-Read more on: https://docs.microsoft.com/en-us/cpp/cpp/smart-pointers-modern-cpp?view=msvc-160
-
 
 
 ##### auto_ptr
