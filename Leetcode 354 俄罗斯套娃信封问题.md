@@ -24,7 +24,7 @@ dp[k]=max(dp[k-i]+1,dp[k]),i=[0...k-1]且i∈N.
 ```c++
 bool compareVectorInt(vector<int> v1, vector<int> v2)
 {
-        return (v1[0]<v2[0]);
+    return (v1[0]<v2[0]);
 }
 class Solution {
 public:
@@ -48,3 +48,25 @@ public:
     }
 };
 ```
+
+这道题dp解法与`Leetcode 300 最长递增子序列`相似，dp解法时间复杂度均为`O(n^2)`。
+
+```c++
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        /*dp*/
+        int nums_size=nums.size();
+        vector<int> dp(nums_size,1);
+
+        for(int i=1;i<nums_size;i++)
+            for(int j=0;j<i;j++)
+                if(nums[i]>nums[j])
+                    dp[i]=max(dp[j]+1,dp[i]);
+
+        return *max_element(dp.begin(),dp.end());
+    }
+};
+```
+
+比dp更好的算法要用到二分搜索。
