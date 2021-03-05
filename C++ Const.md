@@ -14,7 +14,7 @@ using namespace std;
 class Point 
 { 
 private:
-	int x, y; 
+    int x, y; 
 public: 
     Point(int i = 0, int j = 0) 
     {
