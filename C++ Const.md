@@ -32,10 +32,10 @@ public:
 
 int main() 
 { 
-	const Point p; 
-	cout << p.getX() << " "; 
-	cout << p.getY() << endl;
-	return 0; 
+    const Point p; 
+    cout << p.getX() << " "; 
+    cout << p.getY() << endl;
+    return 0; 
 } 
 ```
 
@@ -55,7 +55,7 @@ int main()
 // ref is a const reference to the argument passed in, not a copy
 void changeN(const int& ref)
 {
-	ref = 6; // not allowed, ref is const
+    ref = 6; // not allowed, ref is const
 }
 ```
 
@@ -74,13 +74,13 @@ const static int foo = 42;
 using namespace std; 
 int main() 
 { 
-	const char* p = "12345"; 
-	const char**q = &p; 
-	*q = "abcde"; 
-	const char *s = ++p; 
-	p = "XYZWVU"; 
-	cout << *++s; 
-	return 0; 
+    const char* p = "12345"; 
+    const char**q = &p; 
+    *q = "abcde"; 
+    const char *s = ++p; 
+    p = "XYZWVU"; 
+    cout << *++s; 
+    return 0; 
 } 
 ```
 
