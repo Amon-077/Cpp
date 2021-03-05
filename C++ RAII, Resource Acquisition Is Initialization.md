@@ -11,7 +11,7 @@ It is worth noting that assignment and initialization are different concepts.
 ```c++
 class Person{
 public:
-	Person(const std::string name, const std::string phoneNumber, const int age);
+    Person(const std::string name, const std::string phoneNumber, const int age);
 private:
     std::string theName;
     std::string thePhoneNumber;
@@ -30,7 +30,7 @@ Person::Person(const std::string name, const std::string phoneNumber, const int 
 Person::Person(const std::string name, const std::string phoneNumber, const int age)
     :theName(name), thePhoneNumber(phoneNumber), theAge(age)
 {}
-	// Using member initialization list, it's initialization.
+    // Using member initialization list, it's initialization.
 ```
 
 
