@@ -1,4 +1,4 @@
-#### C++ new vs C part of malloc()
+#### C++ new vs C part of C++ malloc()
 
 **Following are the differences between malloc() and operator new.**: 
 
