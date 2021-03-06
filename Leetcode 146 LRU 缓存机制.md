@@ -15,7 +15,7 @@
 
 什么是LRU?
 
-`A **Least Recently Used (LRU) Cache** organizes items in order of use, allowing you to quickly identify which item hasn't been used for the longest amount of time.`
+`A Least Recently Used (LRU) Cache organizes items in order of use, allowing you to quickly identify which item hasn't been used for the longest amount of time.`
 
 `Under the hood, an LRU cache is often implemented by pairing [a doubly linked list] with [a hash map].`
 
@@ -101,3 +101,10 @@ private:
 };
 ```
 
+`LRU`是一种缓存文件置换机制，其他缓存文件置换方法还有：
+
+`先进先出算法（FIFO）`：最先进入的内容作为替换对象，具体实现的数据结构是队列(queue)；
+
+`最近最少使用算法（LFU）`：最近最少使用的内容作为替换对象，此方法的标准特征涉及系统跟踪内存中引用块的次数。当缓存已满并且需要更多空间时，系统将以最低参考频率清除项目。
+
+`非最近使用算法（NMRU）`：在最近没有使用的内容中随机选择一个作为替换对象。
