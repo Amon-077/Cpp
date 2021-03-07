@@ -10,7 +10,7 @@ C++ virtual table
 
 其次，编译器还会向基类添加一个隐藏的指针，我们将其称为`* __ vptr`。创建类实例时，会自动设置`* __ vptr`，令它指向该类的虚表。与`* this`指针（`*this`其实是编译器用来解析自引用的函数参数）不同，`* __ vptr`是**真实**的指针。
 
-[^*this]: 指向当前对象。在这里阅读更多，https://stackoverflow.com/questions/16492736/what-is-the-this-pointer
+ * `*this` 指向当前对象。在这里阅读更多，https://stackoverflow.com/questions/16492736/what-is-the-this-pointer
 
 因此，它（`* __ vptr`）使分配的每个类对象的大小都增加一个指针的大小。这也意味着`* __ vptr`将被派生类继承。
 
@@ -70,3 +70,7 @@ ptr->function1(); // Call D1::function1()
 ptr = &d2;
 ptr->function1(); // Call Base::function1()
 ```
+
+很明显，相对于一般成员函数，虚函数效率是较低的。使用虚函数不仅增加了一次指针查找，还需要跳转到虚表，有cache-miss的可能性，还不能作内联函数，很多其他的优化也不能使用在虚函数上，如果虚函数有很多实现方式，分支预测的成功率还会降低。
+
+尽管如此，虚函数的开销仍然是可以忽略的。
