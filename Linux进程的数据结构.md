@@ -10,7 +10,7 @@
 
 ​	更具体地说，一个进程是一个或多个`task`，它们共享某些资源-文件描述符，地址空间/内存映射，信号处理，进程和进程组ID等。
 
-[^task_struct]: https://github.com/torvalds/linux/blob/master/include/linux/sched.h
+task_struct: https://github.com/torvalds/linux/blob/master/include/linux/sched.h
 
 
 
@@ -26,7 +26,7 @@
 
 /* Used in tsk->exit_state: */
 #define EXIT_DEAD			    0x0010
-#define EXIT_ZOMBIE			    0x0020
+#define EXIT_ZOMBIE			  0x0020
 ```
 
 - task_struct定义
@@ -52,6 +52,6 @@
 2. 用户程序可使用fork()系统调用创建多个进程，每个进程执行一个程序段；
 3. 在fork()后 ,exec()系统调用用一个新进程替代旧进程。
 
-[^fork()]: https://en.wikipedia.org/wiki/Fork_(system_call)
-[^exec()]: https://en.wikipedia.org/wiki/Exec_(system_call)
+fork(): https://en.wikipedia.org/wiki/Fork_(system_call)
+exec(): https://en.wikipedia.org/wiki/Exec_(system_call)
 
