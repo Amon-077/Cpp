@@ -25,8 +25,8 @@ task_struct: https://github.com/torvalds/linux/blob/master/include/linux/sched.h
 #define TASK_RUNNING			0x0000
 
 /* Used in tsk->exit_state: */
-#define EXIT_DEAD			    0x0010
-#define EXIT_ZOMBIE			  0x0020
+#define EXIT_DEAD		        0x0010
+#define EXIT_ZOMBIE			0x0020
 ```
 
 - task_struct定义
