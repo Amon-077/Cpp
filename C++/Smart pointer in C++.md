@@ -1,4 +1,4 @@
-#### Smart pointer in C++
+#### C++ Smart pointer
 
 ##### auto_ptr, unique_ptr, shared_ptr and weak_ptr
 
