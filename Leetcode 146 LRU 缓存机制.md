@@ -52,52 +52,52 @@ public:
         cache_space=capacity;
     }
     
-    inline void refresh(int key)
+    inline void Refresh(int key)
     {
-        deque<int>::iterator it=LRUdeque.begin();
+        deque<int>::iterator it=lru_deque.begin();
         while(*it!=key) it++;
-        LRUdeque.erase(it);
-        LRUdeque.push_front(key);
+        lru_deque.erase(it);
+        lru_deque.push_front(key);
     }
     
-    inline void push_new_key(int key, int value)
+    inline void PushNewKey(int key, int value)
     {
-        int temp=LRUdeque.back();
-        LRUdeque.pop_back();
-        LRUumap.erase(temp);
-        LRUumap[key]=value;
-        LRUdeque.push_front(key);
+        int temp=lru_deque.back();
+        lru_deque.pop_back();
+        lru_map.erase(temp);
+        lru_map[key]=value;
+        lru_deque.push_front(key);
     }
     
     int get(int key) {
-        if(!LRUumap.count(key)) return -1;
+        if(!lru_map.count(key)) return -1;
 
-        refresh(key);
-        return LRUumap[key];
+        Refresh(key);
+        return lru_map[key];
     }
     
     void put(int key, int value) {
-        if(LRUumap.count(key))
+        if(lru_map.count(key))
         {
-            LRUumap[key]=value;
-            refresh(key);
+            lru_map[key]=value;
+            Refresh(key);
         }
         else if(curr_space==cache_space)
         {
-            push_new_key(key, value);
+            PushNewKey(key, value);
         }
         else
         {
             curr_space++;
-            LRUumap[key]=value;
-            LRUdeque.push_front(key);
+            lru_map[key]=value;
+            lru_deque.push_front(key);
         }
     }
 private:
     int cache_space;
     int curr_space=0;
-    deque<int> LRUdeque;
-    unordered_map<int,int> LRUumap;
+    deque<int> lru_deque;
+    unordered_map<int,int> lru_map;
 };
 ```
 
