@@ -73,4 +73,6 @@ ptr->function1(); // Call Base::function1()
 
 很明显，相对于一般成员函数，虚函数效率是较低的。使用虚函数不仅增加了一次指针查找，还需要跳转到虚表，有cache-miss的可能性，还不能作内联函数，很多其他的优化也不能使用在虚函数上，如果虚函数有很多实现方式，分支预测的成功率还会降低。
 
+[^cache-miss] : https://hazelcast.com/glossary/cache-miss/
+
 尽管如此，虚函数的开销仍然是可以忽略的。
